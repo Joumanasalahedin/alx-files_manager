@@ -17,8 +17,8 @@ class UsersController {
       response.status(400).json({ error: 'Missing password' });
       return;
     }
-
-    const users = dbClient.db.collection('users');
+    const db = dbClient.client.db(dbClient.dbName);
+    const users = db.collection('users');
     users.findOne({ email }, (err, user) => {
       if (user) {
         response.status(400).json({ error: 'Already exist' });
