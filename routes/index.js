@@ -1,8 +1,8 @@
-import express from 'express';
+import { Router } from 'express';
 import AppController from '../controllers/AppController';
 import UsersController from '../controllers/UsersController';
 
-const router = express.Router();
+const router = Router();
 
 // Define routes
 router.get('/status', AppController.getStatus);
